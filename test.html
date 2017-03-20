@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script src="/js/extjs/6.2.0/ext-all.js"></script>
+<script src="/js/extjs/6.2.0/classic/locale/locale-zh_CN.js"></script>
+
+<link href="/js/extjs/6.2.0/classic/theme-crisp/resources/theme-crisp-all.css" rel="stylesheet">
+
+
+<script type="text/javascript">
+//    Ext.onReady(function () {
+//        Ext.MessageBox.alert("提示", "Hello World");
+//    });
+    
+    Ext.onReady(function () {
+        
+
+        
+        var accordion = null;
+        var manView = null ;
+        
+
+        var ajdata = Ext.Ajax.request({
+            url: 'json.php',
+
+            success: function(response, opts) {
+            var obj = Ext.decode(response.responseText);
+            accordion =  Ext.create("Ext.panel.Panel", {
+                title: "west",
+                layout: "accordion",  //设置为手风琴布局
+                layoutConfig: {
+                    animate: true
+                },
+                width: 250,
+                minWidth: 90,
+                id: 'dynamicMenu',
+                region: "west", //设置方位
+                split: true,
+                collapsible: true,
+                items: obj.data
+            });
+                
+               manView = new Ext.Viewport({
+                title: "Viewport",
+                layout: "border",
+                defaults: {
+                    bodyStyle: "background-color: #FFFFFF;",
+                    frame: true
+                },
+                items: [
+                            accordion,
+                            { region: "north", height: 100, title:'瑞创盛达' , collapsible:true },
+                            { region: "center", split: true, border: true, collapsible: true,title:'center' },
+                            { region: "south", title:"south3", split: true, border: true, collapsible: true, height: 100 },
+
+                        ]
+            });
+                
+                console.log(obj);
+            },
+
+            failure: function(response, opts) {
+                console.log('server-side failure with status code ' + response.status);
+            }
+        });
+        
+        console.log(manView);
+        
+
+        
+
+        });
+</script>
+</body>
+</html>

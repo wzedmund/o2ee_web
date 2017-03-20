@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Demo</title>
+		
+		<!-- Attach our CSS -->
+	  	<link rel="stylesheet" href="css/orbit-1.2.3.css">
+	  	
+		<!-- Attach necessary JS -->
+		<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.orbit-1.2.3.min.js"></script>	
+		<script type="text/javascript">
+			$(window).load(function() {
+				$('#featured').orbit(
+				{ bullets:true, timer: false}
+				);
+			});
+		</script>
+		
+	</head>
+	<body>
+	
+	<div class="container">
+		<div id="featured"> 
+                <img src="img/o2mation.png" data-caption="#A1" />
+                <img src="img/rapid.png" data-caption="#A2" />
+                <img src="img/cloud.png" data-caption="#A3" />
+                <img src="img/charger.png" data-caption="#A4" />
+			</div>
+            <!-- Captions for Orbit -->
+            <span class="orbit-caption" id="A1"><h3>O2mation组态软件</h3>图形化开发方式实现工业、楼宇系统的集成和管理。</span>
+            <span class="orbit-caption" id="A2"><h3>Rapid物联网开发套件</h3>Rapid通过对硬件资源的抽象，使用事件机制和异步模型，让硬件开发变得简单而高效。</span>
+            <span class="orbit-caption" id="A3"><h3>云服务</h3>云服务主要是为了解决设备间通信、设备管理、数据存储和数据转发而开发的平台。</span>
+            <span class="orbit-caption" id="A4"><h3>充电桩</h3>提供各式充电桩控制板定制开发，提供技术及全方位服务，开放积累的多年技术力量及供应链资源，帮助客户轻松拥有自己的品牌充电桩，抢占电动汽车充电桩千亿市场。</span>
+		
+		</div>	
+	</body>
+</html>
